@@ -1,0 +1,577 @@
+[gd_scene load_steps=68 format=2]
+
+[ext_resource path="res://Sprite/Background.png" type="Texture" id=1]
+[ext_resource path="res://Scene/Prefab/Battle/Battle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scene/Main/Game/Game.gd" type="Script" id=3]
+[ext_resource path="res://Resource/Enemy/Enemy-3.tres" type="Resource" id=4]
+[ext_resource path="res://Resource/Enemy/Enemy-5.tres" type="Resource" id=5]
+[ext_resource path="res://Resource/Enemy/Enemy-2.tres" type="Resource" id=6]
+[ext_resource path="res://Resource/Enemy/Enemy-1.tres" type="Resource" id=7]
+[ext_resource path="res://Resource/Enemy/Enemy-4.tres" type="Resource" id=8]
+[ext_resource path="res://Sprite/Object/TODO-O2.png" type="Texture" id=9]
+[ext_resource path="res://Sprite/Object/TODO-O3.png" type="Texture" id=10]
+[ext_resource path="res://Sprite/Object/Fishing-1.png" type="Texture" id=11]
+[ext_resource path="res://Scene/Prefab/Fishing/Fishing.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scene/Prefab/Evade/Evade.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scene/Prefab/Workout/Workout.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sprite/Object/seeweed2.png" type="Texture" id=15]
+[ext_resource path="res://Sprite/Object/seeweed1.png" type="Texture" id=16]
+[ext_resource path="res://Sprite/EnemyAnimation/Enemy-5-1.png" type="Texture" id=17]
+[ext_resource path="res://Sprite/EnemyAnimation/Enemy-5-2.png" type="Texture" id=18]
+[ext_resource path="res://Sprite/Castle.png" type="Texture" id=19]
+[ext_resource path="res://Sprite/EnemyAnimation/Enemy-4-2.png" type="Texture" id=20]
+[ext_resource path="res://Sprite/EnemyAnimation/Enemy-4-1.png" type="Texture" id=21]
+[ext_resource path="res://Sprite/EnemyAnimation/Enemy-5-3.png" type="Texture" id=22]
+[ext_resource path="res://Sprite/EnemyAnimation/Enemy-5-4.png" type="Texture" id=23]
+[ext_resource path="res://Sprite/EnemyAnimation/Enemy-4-3.png" type="Texture" id=24]
+[ext_resource path="res://Sprite/EnemyAnimation/Enemy-4-4.png" type="Texture" id=25]
+[ext_resource path="res://Sprite/EnemyAnimation/Enemy-3-3.png" type="Texture" id=26]
+[ext_resource path="res://Sprite/EnemyAnimation/Enemy-3-4.png" type="Texture" id=27]
+[ext_resource path="res://Sprite/EnemyAnimation/Enemy-3-2.png" type="Texture" id=28]
+[ext_resource path="res://Sprite/EnemyAnimation/Enemy-3-1.png" type="Texture" id=29]
+[ext_resource path="res://Sprite/EnemyAnimation/Enemy-1-2.png" type="Texture" id=30]
+[ext_resource path="res://Sprite/EnemyAnimation/Enemy-1-1.png" type="Texture" id=31]
+[ext_resource path="res://Sprite/EnemyAnimation/Enemy-1-3.png" type="Texture" id=32]
+[ext_resource path="res://Sprite/EnemyAnimation/Enemy-1-4.png" type="Texture" id=33]
+[ext_resource path="res://Sprite/EnemyAnimation/Enemy-2-1.png" type="Texture" id=34]
+[ext_resource path="res://Sprite/EnemyAnimation/Enemy-2-2.png" type="Texture" id=35]
+[ext_resource path="res://Sprite/EnemyAnimation/Enemy-2-3.png" type="Texture" id=36]
+[ext_resource path="res://Sprite/EnemyAnimation/Enemy-2-4.png" type="Texture" id=37]
+[ext_resource path="res://Resource/Theme/Menu.tres" type="Theme" id=38]
+[ext_resource path="res://Resource/Theme/Stats.tres" type="Theme" id=39]
+[ext_resource path="res://Scene/Main/MainMenu/Script/ButtonStyle.gd" type="Script" id=40]
+[ext_resource path="res://icon-16x16.png" type="Texture" id=41]
+[ext_resource path="res://Sprite/Object/TODO-O2-2.png" type="Texture" id=42]
+[ext_resource path="res://Sprite/Object/Fishing-2.png" type="Texture" id=43]
+[ext_resource path="res://Sprite/Object/TODO-O3-2.png" type="Texture" id=44]
+[ext_resource path="res://Scene/Prefab/Options/Options.tscn" type="PackedScene" id=45]
+[ext_resource path="res://Sprite/Icon/Options-1.png" type="Texture" id=46]
+[ext_resource path="res://Sprite/Icon/Options-2.png" type="Texture" id=47]
+[ext_resource path="res://Sprite/Icon/Hitpoints.png" type="Texture" id=48]
+[ext_resource path="res://Sprite/Icon/Defense.png" type="Texture" id=49]
+[ext_resource path="res://Sprite/Icon/Attack.png" type="Texture" id=50]
+[ext_resource path="res://Resource/Sound/music.wav" type="AudioStream" id=51]
+
+[sub_resource type="AnimatedTexture" id=1]
+frames = 2
+frame_0/texture = ExtResource( 16 )
+frame_0/delay_sec = 0.5
+frame_1/texture = ExtResource( 15 )
+frame_1/delay_sec = 0.5
+
+[sub_resource type="AnimatedTexture" id=2]
+frames = 2
+frame_0/texture = ExtResource( 15 )
+frame_0/delay_sec = 0.5
+frame_1/texture = ExtResource( 16 )
+frame_1/delay_sec = 0.5
+
+[sub_resource type="AnimatedTexture" id=9]
+frames = 2
+frame_0/texture = ExtResource( 31 )
+frame_0/delay_sec = 0.5
+frame_1/texture = ExtResource( 30 )
+frame_1/delay_sec = 0.5
+
+[sub_resource type="AnimatedTexture" id=10]
+frames = 2
+frame_0/texture = ExtResource( 32 )
+frame_0/delay_sec = 0.25
+frame_1/texture = ExtResource( 33 )
+frame_1/delay_sec = 0.25
+
+[sub_resource type="AnimatedTexture" id=11]
+frames = 2
+frame_0/texture = ExtResource( 34 )
+frame_0/delay_sec = 0.5
+frame_1/texture = ExtResource( 35 )
+frame_1/delay_sec = 0.5
+
+[sub_resource type="AnimatedTexture" id=12]
+frames = 2
+frame_0/texture = ExtResource( 36 )
+frame_0/delay_sec = 0.25
+frame_1/texture = ExtResource( 37 )
+frame_1/delay_sec = 0.25
+
+[sub_resource type="AnimatedTexture" id=4]
+frames = 2
+frame_0/texture = ExtResource( 21 )
+frame_0/delay_sec = 0.5
+frame_1/texture = ExtResource( 20 )
+frame_1/delay_sec = 0.5
+
+[sub_resource type="AnimatedTexture" id=6]
+frames = 2
+frame_0/texture = ExtResource( 24 )
+frame_0/delay_sec = 0.25
+frame_1/texture = ExtResource( 25 )
+frame_1/delay_sec = 0.25
+
+[sub_resource type="AnimatedTexture" id=7]
+frames = 2
+frame_0/texture = ExtResource( 29 )
+frame_0/delay_sec = 0.5
+frame_1/texture = ExtResource( 28 )
+frame_1/delay_sec = 0.5
+
+[sub_resource type="AnimatedTexture" id=8]
+frames = 2
+frame_0/texture = ExtResource( 26 )
+frame_0/delay_sec = 0.25
+frame_1/texture = ExtResource( 27 )
+frame_1/delay_sec = 0.25
+
+[sub_resource type="AnimatedTexture" id=3]
+frames = 2
+frame_0/texture = ExtResource( 17 )
+frame_0/delay_sec = 0.5
+frame_1/texture = ExtResource( 18 )
+frame_1/delay_sec = 0.5
+
+[sub_resource type="AnimatedTexture" id=5]
+frames = 2
+frame_0/texture = ExtResource( 22 )
+frame_0/delay_sec = 0.25
+frame_1/texture = ExtResource( 23 )
+frame_1/delay_sec = 0.25
+
+[sub_resource type="StyleBoxFlat" id=15]
+content_margin_left = 8.0
+content_margin_right = 8.0
+bg_color = Color( 0, 0, 0, 0.470588 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0, 0, 0, 0.470588 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0, 0, 0, 0.941176 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 0.584314, 0, 1 )
+
+[node name="Game" type="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+stretch_mode = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Decoration" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Castle" type="TextureRect" parent="Decoration"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -240.0
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Seeweed" type="TextureRect" parent="Decoration"]
+margin_left = 197.0
+margin_top = 203.0
+margin_right = 237.0
+margin_bottom = 243.0
+texture = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Seeweed2" type="TextureRect" parent="Decoration"]
+margin_left = 436.0
+margin_top = 227.0
+margin_right = 476.0
+margin_bottom = 267.0
+texture = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Seeweed3" type="TextureRect" parent="Decoration"]
+margin_left = 65.0
+margin_top = 214.0
+margin_right = 105.0
+margin_bottom = 254.0
+texture = SubResource( 1 )
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Seestar" type="TextureRect" parent="Decoration"]
+margin_left = 266.0
+margin_top = 127.0
+margin_right = 306.0
+margin_bottom = 167.0
+texture = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Seestar2" type="TextureRect" parent="Decoration"]
+visible = false
+margin_left = 266.0
+margin_top = 127.0
+margin_right = 306.0
+margin_bottom = 167.0
+texture = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SeeSerpent" type="TextureRect" parent="Decoration"]
+margin_left = 440.0
+margin_top = 128.0
+margin_right = 480.0
+margin_bottom = 168.0
+texture = SubResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SeeSerpent2" type="TextureRect" parent="Decoration"]
+visible = false
+margin_left = 440.0
+margin_top = 128.0
+margin_right = 480.0
+margin_bottom = 168.0
+texture = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pufferfish" type="TextureRect" parent="Decoration"]
+margin_left = 295.0
+margin_top = 88.0
+margin_right = 346.0
+margin_bottom = 142.0
+texture = SubResource( 4 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pufferfish2" type="TextureRect" parent="Decoration"]
+visible = false
+margin_left = 295.0
+margin_top = 88.0
+margin_right = 346.0
+margin_bottom = 142.0
+texture = SubResource( 6 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Seehorse" type="TextureRect" parent="Decoration"]
+margin_left = 413.0
+margin_top = 89.0
+margin_right = 453.0
+margin_bottom = 129.0
+texture = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Seehorse2" type="TextureRect" parent="Decoration"]
+visible = false
+margin_left = 413.0
+margin_top = 89.0
+margin_right = 453.0
+margin_bottom = 129.0
+texture = SubResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="King" type="TextureRect" parent="Decoration"]
+margin_left = 346.0
+margin_top = 63.0
+margin_right = 397.0
+margin_bottom = 119.0
+texture = SubResource( 3 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="King2" type="TextureRect" parent="Decoration"]
+visible = false
+margin_left = 346.0
+margin_top = 63.0
+margin_right = 397.0
+margin_bottom = 119.0
+texture = SubResource( 5 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IconWorkout" type="TextureRect" parent="Decoration"]
+margin_left = 35.0
+margin_top = 194.0
+margin_right = 51.0
+margin_bottom = 210.0
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IconEvade" type="TextureRect" parent="Decoration"]
+margin_left = 109.0
+margin_top = 194.0
+margin_right = 125.0
+margin_bottom = 210.0
+texture = ExtResource( 49 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IconFishing" type="TextureRect" parent="Decoration"]
+margin_left = 168.0
+margin_top = 194.0
+margin_right = 184.0
+margin_bottom = 210.0
+texture = ExtResource( 48 )
+
+[node name="Message" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Message"]
+margin_left = 306.0
+margin_top = 49.0
+margin_right = 434.0
+margin_bottom = 63.0
+theme = ExtResource( 39 )
+custom_styles/normal = SubResource( 15 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bubble" type="Panel" parent="Message"]
+margin_left = 354.0
+margin_top = 73.0
+margin_right = 361.0
+margin_bottom = 80.0
+custom_styles/panel = SubResource( 16 )
+
+[node name="Bubble2" type="Panel" parent="Message"]
+margin_left = 347.0
+margin_top = 65.0
+margin_right = 354.0
+margin_bottom = 72.0
+custom_styles/panel = SubResource( 16 )
+
+[node name="OptionButton" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 46 )
+texture_pressed = ExtResource( 47 )
+texture_hover = ExtResource( 47 )
+texture_focused = ExtResource( 47 )
+expand = true
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Intro" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fight-Border" type="Panel" parent="Intro"]
+margin_top = 201.0
+margin_right = 232.0
+margin_bottom = 270.0
+custom_styles/panel = SubResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fight-Text" type="Label" parent="Intro"]
+margin_left = 248.0
+margin_top = 216.0
+margin_right = 373.0
+margin_bottom = 266.0
+theme = ExtResource( 39 )
+text = "Use the training equipment to boost your stats."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Training-Border" type="Panel" parent="Intro"]
+margin_right = 232.0
+margin_bottom = 188.0
+custom_styles/panel = SubResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Training-Text" type="Label" parent="Intro"]
+margin_left = 244.0
+margin_top = 8.0
+margin_right = 369.0
+margin_bottom = 69.0
+theme = ExtResource( 39 )
+text = "Fight the king and his minions to get the crown and achieve the title of \"Ocean King\"."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Intro"]
+margin_left = 277.0
+margin_top = 97.0
+margin_right = 434.0
+margin_bottom = 205.0
+theme = ExtResource( 38 )
+text = "Lets Go!"
+script = ExtResource( 40 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="Intro/Button"]
+visible = false
+anchor_bottom = 1.0
+margin_left = -8.0
+margin_top = 32.0
+margin_right = 8.0
+margin_bottom = -28.0
+texture = ExtResource( 41 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Battle" parent="." instance=ExtResource( 2 )]
+margin_left = 7.0
+margin_top = 12.0
+margin_right = -253.0
+margin_bottom = -92.0
+enemies = {
+1: ExtResource( 7 ),
+2: ExtResource( 6 ),
+3: ExtResource( 4 ),
+4: ExtResource( 8 ),
+5: ExtResource( 5 )
+}
+
+[node name="StartWorkout" type="TextureButton" parent="."]
+margin_left = 26.0
+margin_top = 217.0
+margin_right = 58.0
+margin_bottom = 249.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 42 )
+texture_hover = ExtResource( 42 )
+texture_focused = ExtResource( 42 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartFishing" type="TextureButton" parent="."]
+margin_left = 144.0
+margin_top = 204.0
+margin_right = 208.0
+margin_bottom = 268.0
+rect_min_size = Vector2( 64, 64 )
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 43 )
+texture_hover = ExtResource( 43 )
+texture_focused = ExtResource( 43 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartEvade" type="TextureButton" parent="."]
+margin_left = 98.0
+margin_top = 218.0
+margin_right = 130.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 44 )
+texture_hover = ExtResource( 44 )
+texture_focused = ExtResource( 44 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Workout" parent="." instance=ExtResource( 14 )]
+visible = false
+
+[node name="Fishing" parent="." instance=ExtResource( 12 )]
+visible = false
+
+[node name="Evade" parent="." instance=ExtResource( 13 )]
+visible = false
+
+[node name="Options" parent="." instance=ExtResource( 45 )]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 51 )
+volume_db = -12.0
+
+[node name="TimerMessage" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="pressed" from="OptionButton" to="." method="showOptions"]
+[connection signal="focus_entered" from="Intro/Button" to="Intro/Button" method="mouse_entered"]
+[connection signal="focus_exited" from="Intro/Button" to="Intro/Button" method="mouse_exited"]
+[connection signal="mouse_entered" from="Intro/Button" to="Intro/Button" method="mouse_entered"]
+[connection signal="mouse_exited" from="Intro/Button" to="Intro/Button" method="mouse_exited"]
+[connection signal="pressed" from="Intro/Button" to="." method="intro"]
+[connection signal="pressed" from="StartWorkout" to="." method="startWorkout"]
+[connection signal="pressed" from="StartFishing" to="." method="startFishing"]
+[connection signal="pressed" from="StartEvade" to="." method="startEvade"]
+[connection signal="timeout" from="TimerMessage" to="." method="message"]

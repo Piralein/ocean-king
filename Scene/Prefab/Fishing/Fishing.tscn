@@ -1,0 +1,135 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scene/Prefab/Fishing/Fishing.gd" type="Script" id=1]
+[ext_resource path="res://icon-16x16.png" type="Texture" id=2]
+[ext_resource path="res://Scene/Main/MainMenu/Script/ButtonStyle.gd" type="Script" id=3]
+[ext_resource path="res://Resource/Theme/Menu.tres" type="Theme" id=4]
+[ext_resource path="res://Resource/Theme/Stats.tres" type="Theme" id=5]
+[ext_resource path="res://Sprite/UI/Sand.png" type="Texture" id=6]
+[ext_resource path="res://Sprite/UI/Panel.png" type="Texture" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.941176 )
+
+[node name="Fishing" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sand" type="TextureRect" parent="."]
+margin_left = 12.0
+margin_top = 17.0
+margin_right = 212.0
+margin_bottom = 258.0
+texture = ExtResource( 6 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = 371.0
+margin_top = 12.0
+margin_right = 469.0
+margin_bottom = 56.0
+theme = ExtResource( 4 )
+text = "Back"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="BackButton"]
+visible = false
+anchor_bottom = 1.0
+margin_left = -10.0
+margin_top = 1.0
+margin_right = 6.0
+margin_bottom = 1.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="Label" parent="."]
+margin_left = 232.0
+margin_top = 87.0
+margin_right = 459.0
+margin_bottom = 228.0
+theme = ExtResource( 5 )
+text = "Catch the worms.
+Every 8 seconds, new holes will appear.
+
+Click the worm after it appeared in
+less than 1 seconds to catch it.
+Not every hole will hold a worm.
+
+Every worm will grant 5 hitpoints."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Catched" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -11.0
+margin_top = -118.0
+margin_right = 73.0
+margin_bottom = -78.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Catched"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Layout" type="HBoxContainer" parent="Catched"]
+margin_left = 10.0
+margin_top = 4.0
+margin_right = 74.0
+margin_bottom = 36.0
+custom_constants/separation = 0
+
+[node name="Title" type="Label" parent="Catched/Layout"]
+margin_right = 58.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+theme = ExtResource( 5 )
+text = "Catched:"
+valign = 1
+
+[node name="Amount" type="Label" parent="Catched/Layout"]
+margin_left = 58.0
+margin_right = 64.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+theme = ExtResource( 5 )
+text = "0"
+align = 2
+valign = 1
+
+[connection signal="focus_entered" from="BackButton" to="BackButton" method="mouse_entered"]
+[connection signal="focus_exited" from="BackButton" to="BackButton" method="mouse_exited"]
+[connection signal="mouse_entered" from="BackButton" to="BackButton" method="mouse_entered"]
+[connection signal="mouse_exited" from="BackButton" to="BackButton" method="mouse_exited"]
+[connection signal="pressed" from="BackButton" to="." method="stop"]

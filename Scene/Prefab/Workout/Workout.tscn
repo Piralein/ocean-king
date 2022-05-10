@@ -1,0 +1,272 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scene/Prefab/Workout/Workout.gd" type="Script" id=1]
+[ext_resource path="res://Resource/Theme/Menu.tres" type="Theme" id=2]
+[ext_resource path="res://Resource/Theme/Stats.tres" type="Theme" id=3]
+[ext_resource path="res://Resource/Font/m5x7.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Sprite/UI/Panel.png" type="Texture" id=5]
+[ext_resource path="res://Sprite/UI/Panel-2.png" type="Texture" id=6]
+[ext_resource path="res://icon-16x16.png" type="Texture" id=7]
+[ext_resource path="res://Scene/Main/MainMenu/Script/ButtonStyle.gd" type="Script" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.941176 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = ExtResource( 4 )
+
+[node name="Workout" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Key_Container" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = -38.0
+margin_right = -72.0
+margin_bottom = 34.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Key_Container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Key" type="Label" parent="Key_Container"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 68.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 64, 64 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Streak" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = 41.0
+margin_right = -66.0
+margin_bottom = 81.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Streak"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Layout" type="HBoxContainer" parent="Streak"]
+margin_left = 10.0
+margin_top = 4.0
+margin_right = 74.0
+margin_bottom = 36.0
+custom_constants/separation = 0
+
+[node name="Title" type="Label" parent="Streak/Layout"]
+margin_right = 58.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+theme = ExtResource( 3 )
+text = "Streak: "
+valign = 1
+
+[node name="Amount" type="Label" parent="Streak/Layout"]
+margin_left = 58.0
+margin_right = 64.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+theme = ExtResource( 3 )
+text = "0"
+align = 2
+valign = 1
+
+[node name="Total" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -107.0
+margin_top = -88.0
+margin_right = -23.0
+margin_bottom = -48.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Total"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Layout" type="HBoxContainer" parent="Total"]
+margin_left = 10.0
+margin_top = 4.0
+margin_right = 74.0
+margin_bottom = 36.0
+custom_constants/separation = 0
+
+[node name="Title" type="Label" parent="Total/Layout"]
+margin_right = 58.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+theme = ExtResource( 3 )
+text = "Total:"
+valign = 1
+
+[node name="Amount" type="Label" parent="Total/Layout"]
+margin_left = 58.0
+margin_right = 64.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+theme = ExtResource( 3 )
+text = "0"
+align = 2
+valign = 1
+
+[node name="Current" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -195.0
+margin_top = -88.0
+margin_right = -111.0
+margin_bottom = -48.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Current"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Layout" type="HBoxContainer" parent="Current"]
+margin_left = 10.0
+margin_top = 4.0
+margin_right = 74.0
+margin_bottom = 36.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Current/Layout"]
+margin_right = 58.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+theme = ExtResource( 3 )
+text = "Current:"
+valign = 1
+
+[node name="Amount" type="Label" parent="Current/Layout"]
+margin_left = 58.0
+margin_right = 64.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+theme = ExtResource( 3 )
+text = "1"
+align = 2
+valign = 1
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = 371.0
+margin_top = 12.0
+margin_right = 469.0
+margin_bottom = 56.0
+theme = ExtResource( 2 )
+text = "Back"
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="BackButton"]
+visible = false
+anchor_bottom = 1.0
+margin_left = -10.0
+margin_top = 1.0
+margin_right = 6.0
+margin_bottom = 1.0
+texture = ExtResource( 7 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="Label" parent="."]
+margin_left = 220.0
+margin_top = 110.0
+margin_right = 430.0
+margin_bottom = 187.0
+theme = ExtResource( 3 )
+text = "Press the displayed Key.
+
+You get 1 attack every 5 streak points.
+Every 25 points,
+the amount you gain is increased by 1.
+
+The streak will be reset after 4
+seconds without input."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="focus_entered" from="BackButton" to="BackButton" method="mouse_entered"]
+[connection signal="focus_exited" from="BackButton" to="BackButton" method="mouse_exited"]
+[connection signal="mouse_entered" from="BackButton" to="BackButton" method="mouse_entered"]
+[connection signal="mouse_exited" from="BackButton" to="BackButton" method="mouse_exited"]
+[connection signal="pressed" from="BackButton" to="." method="stop"]

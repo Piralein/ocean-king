@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Script/Resource/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Sprite/Enemy/Enemy-2.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+attack = 5
+defense = 3
+hitpoints = 45
+avatar = ExtResource( 2 )
+is_last = false

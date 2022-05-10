@@ -1,0 +1,215 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scene/Prefab/Evade/Evade.gd" type="Script" id=1]
+[ext_resource path="res://icon-16x16.png" type="Texture" id=2]
+[ext_resource path="res://Scene/Main/MainMenu/Script/ButtonStyle.gd" type="Script" id=3]
+[ext_resource path="res://Resource/Theme/Menu.tres" type="Theme" id=4]
+[ext_resource path="res://Resource/Theme/Stats.tres" type="Theme" id=5]
+[ext_resource path="res://Sprite/Avatar/Avatar-1.png" type="Texture" id=6]
+[ext_resource path="res://Sprite/UI/Panel.png" type="Texture" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.941176 )
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0.321569, 0.603922, 1 )
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 12.0
+height = 8.0
+
+[node name="Evade" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = 371.0
+margin_top = 12.0
+margin_right = 469.0
+margin_bottom = 56.0
+theme = ExtResource( 4 )
+text = "Back"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="BackButton"]
+visible = false
+anchor_bottom = 1.0
+margin_left = -10.0
+margin_top = 1.0
+margin_right = 6.0
+margin_bottom = 1.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="Label" parent="."]
+margin_left = 238.0
+margin_top = 99.0
+margin_right = 464.0
+margin_bottom = 270.0
+theme = ExtResource( 5 )
+text = "Evade the trash floating in the ocean.
+Every second 4 pieces will spawn.
+
+Use the A and D keys to move.
+
+You get 1 defense for 
+every 20 evaded pieces in a row.
+
+If you get hit, the streak will be reset."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="PanelContainer" parent="."]
+margin_left = 7.0
+margin_top = 9.0
+margin_right = 222.0
+margin_bottom = 262.0
+rect_clip_content = true
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" type="Area2D" parent="."]
+position = Vector2( 23, 246 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Player"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="Evaded" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.0
+margin_top = -119.0
+margin_right = 80.0
+margin_bottom = -79.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Evaded"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Layout" type="HBoxContainer" parent="Evaded"]
+margin_left = 10.0
+margin_top = 4.0
+margin_right = 74.0
+margin_bottom = 36.0
+custom_constants/separation = 0
+
+[node name="Title" type="Label" parent="Evaded/Layout"]
+margin_right = 58.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+theme = ExtResource( 5 )
+text = "Evaded:"
+valign = 1
+
+[node name="Amount" type="Label" parent="Evaded/Layout"]
+margin_left = 58.0
+margin_right = 64.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+theme = ExtResource( 5 )
+text = "0"
+align = 2
+valign = 1
+
+[node name="Defense" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.0
+margin_top = -70.0
+margin_right = 80.0
+margin_bottom = -30.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Defense"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Layout" type="HBoxContainer" parent="Defense"]
+margin_left = 10.0
+margin_top = 4.0
+margin_right = 74.0
+margin_bottom = 36.0
+custom_constants/separation = 0
+
+[node name="Title" type="Label" parent="Defense/Layout"]
+margin_right = 58.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+theme = ExtResource( 5 )
+text = "Defense:"
+valign = 1
+
+[node name="Amount" type="Label" parent="Defense/Layout"]
+margin_left = 58.0
+margin_right = 64.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+theme = ExtResource( 5 )
+text = "0"
+align = 2
+valign = 1
+
+[connection signal="focus_entered" from="BackButton" to="BackButton" method="mouse_entered"]
+[connection signal="focus_exited" from="BackButton" to="BackButton" method="mouse_exited"]
+[connection signal="mouse_entered" from="BackButton" to="BackButton" method="mouse_entered"]
+[connection signal="mouse_exited" from="BackButton" to="BackButton" method="mouse_exited"]
+[connection signal="pressed" from="BackButton" to="." method="stop"]
+[connection signal="body_entered" from="Player" to="." method="_on_Player_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

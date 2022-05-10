@@ -1,0 +1,416 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Scene/Prefab/Battle/Script/UI.gd" type="Script" id=1]
+[ext_resource path="res://Sprite/Icon/Hitpoints.png" type="Texture" id=2]
+[ext_resource path="res://Sprite/Icon/Defense.png" type="Texture" id=3]
+[ext_resource path="res://Sprite/Icon/Attack.png" type="Texture" id=4]
+[ext_resource path="res://Sprite/Avatar/Avatar-1.png" type="Texture" id=5]
+[ext_resource path="res://Sprite/Enemy/Enemy-1.png" type="Texture" id=6]
+[ext_resource path="res://Scene/Prefab/Battle/Battle.gd" type="Script" id=7]
+[ext_resource path="res://Resource/Theme/Stats.tres" type="Theme" id=8]
+[ext_resource path="res://Resource/Enemy/Enemy-3.tres" type="Resource" id=9]
+[ext_resource path="res://Resource/Enemy/Enemy-5.tres" type="Resource" id=10]
+[ext_resource path="res://Resource/Enemy/Enemy-2.tres" type="Resource" id=11]
+[ext_resource path="res://Resource/Enemy/Enemy-1.tres" type="Resource" id=12]
+[ext_resource path="res://Resource/Enemy/Enemy-4.tres" type="Resource" id=13]
+[ext_resource path="res://Sprite/Icon/Battle.png" type="Texture" id=14]
+[ext_resource path="res://Sprite/Avatar/Avatar-2.png" type="Texture" id=15]
+[ext_resource path="res://Resource/Font/m5x7.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://Resource/Sound/Attack.wav" type="AudioStream" id=17]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 16 )
+
+[node name="Battle" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -260.0
+margin_bottom = -104.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+character_ui_path = NodePath("Layout/Character")
+enemy_ui_path = NodePath("Layout/Enemy")
+enemies = {
+1: ExtResource( 12 ),
+2: ExtResource( 11 ),
+3: ExtResource( 9 ),
+4: ExtResource( 13 ),
+5: ExtResource( 10 )
+}
+attack = 1
+defense = 1
+hitpoints = 10
+
+[node name="Layout" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Character" type="VBoxContainer" parent="Layout"]
+margin_right = 110.0
+margin_bottom = 166.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+attack_path = NodePath("C_Stats/Design/Stats/Attack/Value")
+defense_path = NodePath("C_Stats/Design/Stats/Defense/Value")
+hitpoints_path = NodePath("C_Stats/Design/Stats/Hitpoints/Value")
+current_hp_path = NodePath("C_Healtbar/Hitpoints/Value")
+progress_bar_path = NodePath("C_Healtbar/Hitpoints")
+avatar_path = NodePath("C_Avatar/Avatar")
+
+[node name="C_Stats" type="CenterContainer" parent="Layout/Character"]
+margin_right = 110.0
+margin_bottom = 72.0
+
+[node name="Design" type="PanelContainer" parent="Layout/Character/C_Stats"]
+margin_left = 23.0
+margin_right = 87.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 64, 0 )
+theme = ExtResource( 8 )
+
+[node name="Stats" type="VBoxContainer" parent="Layout/Character/C_Stats/Design"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 56.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Attack" type="HBoxContainer" parent="Layout/Character/C_Stats/Design/Stats"]
+margin_right = 48.0
+margin_bottom = 16.0
+
+[node name="Icon" type="TextureRect" parent="Layout/Character/C_Stats/Design/Stats/Attack"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 4 )
+
+[node name="Value" type="Label" parent="Layout/Character/C_Stats/Design/Stats/Attack"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 48.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+theme = ExtResource( 8 )
+text = "0"
+align = 2
+valign = 1
+
+[node name="Defense" type="HBoxContainer" parent="Layout/Character/C_Stats/Design/Stats"]
+margin_top = 20.0
+margin_right = 48.0
+margin_bottom = 36.0
+
+[node name="Icon" type="TextureRect" parent="Layout/Character/C_Stats/Design/Stats/Defense"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 3 )
+
+[node name="Value" type="Label" parent="Layout/Character/C_Stats/Design/Stats/Defense"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 48.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+theme = ExtResource( 8 )
+text = "0"
+align = 2
+valign = 1
+
+[node name="Hitpoints" type="HBoxContainer" parent="Layout/Character/C_Stats/Design/Stats"]
+margin_top = 40.0
+margin_right = 48.0
+margin_bottom = 56.0
+
+[node name="Icon" type="TextureRect" parent="Layout/Character/C_Stats/Design/Stats/Hitpoints"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 2 )
+
+[node name="Value" type="Label" parent="Layout/Character/C_Stats/Design/Stats/Hitpoints"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 48.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+theme = ExtResource( 8 )
+text = "0"
+align = 2
+valign = 1
+
+[node name="C_Healtbar" type="CenterContainer" parent="Layout/Character"]
+margin_top = 76.0
+margin_right = 110.0
+margin_bottom = 92.0
+
+[node name="Hitpoints" type="ProgressBar" parent="Layout/Character/C_Healtbar"]
+margin_left = 23.0
+margin_right = 87.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 64, 16 )
+size_flags_vertical = 1
+theme = ExtResource( 8 )
+max_value = 10.0
+step = 1.0
+value = 10.0
+percent_visible = false
+
+[node name="Value" type="Label" parent="Layout/Character/C_Healtbar/Hitpoints"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 8 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Placeholder" type="Control" parent="Layout/Character"]
+margin_top = 96.0
+margin_right = 110.0
+margin_bottom = 96.0
+
+[node name="C_Avatar" type="CenterContainer" parent="Layout/Character"]
+margin_top = 100.0
+margin_right = 110.0
+margin_bottom = 132.0
+
+[node name="Avatar" type="TextureRect" parent="Layout/Character/C_Avatar"]
+margin_left = 39.0
+margin_right = 71.0
+margin_bottom = 32.0
+texture = ExtResource( 5 )
+
+[node name="Enemy" type="VBoxContainer" parent="Layout"]
+margin_left = 110.0
+margin_right = 220.0
+margin_bottom = 166.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+attack_path = NodePath("C_Stats/Design/Stats/Attack/Value")
+defense_path = NodePath("C_Stats/Design/Stats/Defense/Value")
+hitpoints_path = NodePath("C_Stats/Design/Stats/Hitpoints/Value")
+current_hp_path = NodePath("C_Healtbar/Hitpoints/Value")
+progress_bar_path = NodePath("C_Healtbar/Hitpoints")
+avatar_path = NodePath("C_Avatar/Avatar")
+
+[node name="C_Stats" type="CenterContainer" parent="Layout/Enemy"]
+margin_right = 110.0
+margin_bottom = 72.0
+
+[node name="Design" type="PanelContainer" parent="Layout/Enemy/C_Stats"]
+margin_left = 23.0
+margin_right = 87.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 64, 0 )
+theme = ExtResource( 8 )
+
+[node name="Stats" type="VBoxContainer" parent="Layout/Enemy/C_Stats/Design"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 56.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Attack" type="HBoxContainer" parent="Layout/Enemy/C_Stats/Design/Stats"]
+margin_right = 48.0
+margin_bottom = 16.0
+
+[node name="Icon" type="TextureRect" parent="Layout/Enemy/C_Stats/Design/Stats/Attack"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 4 )
+
+[node name="Value" type="Label" parent="Layout/Enemy/C_Stats/Design/Stats/Attack"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 48.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+theme = ExtResource( 8 )
+text = "0"
+align = 2
+valign = 1
+
+[node name="Defense" type="HBoxContainer" parent="Layout/Enemy/C_Stats/Design/Stats"]
+margin_top = 20.0
+margin_right = 48.0
+margin_bottom = 36.0
+
+[node name="Icon" type="TextureRect" parent="Layout/Enemy/C_Stats/Design/Stats/Defense"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 3 )
+
+[node name="Value" type="Label" parent="Layout/Enemy/C_Stats/Design/Stats/Defense"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 48.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+theme = ExtResource( 8 )
+text = "0"
+align = 2
+valign = 1
+
+[node name="Hitpoints" type="HBoxContainer" parent="Layout/Enemy/C_Stats/Design/Stats"]
+margin_top = 40.0
+margin_right = 48.0
+margin_bottom = 56.0
+
+[node name="Icon" type="TextureRect" parent="Layout/Enemy/C_Stats/Design/Stats/Hitpoints"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 2 )
+
+[node name="Value" type="Label" parent="Layout/Enemy/C_Stats/Design/Stats/Hitpoints"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 48.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+theme = ExtResource( 8 )
+text = "0"
+align = 2
+valign = 1
+
+[node name="C_Healtbar" type="CenterContainer" parent="Layout/Enemy"]
+margin_top = 76.0
+margin_right = 110.0
+margin_bottom = 92.0
+
+[node name="Hitpoints" type="ProgressBar" parent="Layout/Enemy/C_Healtbar"]
+margin_left = 23.0
+margin_right = 87.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 64, 16 )
+size_flags_vertical = 1
+theme = ExtResource( 8 )
+max_value = 10.0
+step = 1.0
+value = 10.0
+percent_visible = false
+
+[node name="Value" type="Label" parent="Layout/Enemy/C_Healtbar/Hitpoints"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 8 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Placeholder" type="Control" parent="Layout/Enemy"]
+margin_top = 96.0
+margin_right = 110.0
+margin_bottom = 96.0
+
+[node name="C_Avatar" type="CenterContainer" parent="Layout/Enemy"]
+margin_top = 100.0
+margin_right = 110.0
+margin_bottom = 132.0
+
+[node name="Avatar" type="TextureRect" parent="Layout/Enemy/C_Avatar"]
+margin_left = 39.0
+margin_right = 71.0
+margin_bottom = 32.0
+texture = ExtResource( 6 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Start" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -38.0
+margin_top = -20.0
+margin_right = 38.0
+theme = ExtResource( 8 )
+text = "Start Fight"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stop" type="Button" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -38.0
+margin_top = -20.0
+margin_right = 38.0
+theme = ExtResource( 8 )
+text = "Stop Fight"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BattleIcon" type="TextureRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -16.0
+margin_top = -16.0
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 14 )
+
+[node name="WinIcon" type="TextureRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 23.0
+margin_top = 30.0
+margin_right = 23.0
+margin_bottom = 30.0
+texture = ExtResource( 15 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="WinIcon"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -123.0
+margin_top = -5.0
+margin_right = 155.0
+margin_bottom = 50.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "You are the king 
+of the ocean!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+
+[connection signal="timeout" from="Timer" to="." method="turn"]
+[connection signal="pressed" from="Start" to="." method="startBattle"]
+[connection signal="pressed" from="Stop" to="." method="stopBattle"]
